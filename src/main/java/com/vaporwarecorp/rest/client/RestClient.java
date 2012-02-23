@@ -30,8 +30,8 @@ public final class RestClient
 
         // ahora hacer la busqueda en twitter
         SearchResult result =
-            resource.queryParam( "q", busqueda ).queryParam( "rpp", "5" ).accept( MediaType.APPLICATION_JSON ).get(
-                SearchResult.class );
+            resource.queryParam( "q", busqueda ).queryParam( "rpp", "5" ).queryParam( "result_type", "recent" ).accept(
+                MediaType.APPLICATION_JSON ).get( SearchResult.class );
 
         // cojamos la lista de tweets y enseñemos el tweet en la consola
         for ( Tweet tweet : result.getTweets() )
